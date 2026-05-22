@@ -1,0 +1,30 @@
+// ── Reloj 27 MHz (oscilador interno del SoM)
+IO_LOC "CLK_SYS" H11;
+IO_PORT "CLK_SYS" IO_TYPE=LVCMOS33;
+
+// ── RST — usar un pin de IO libre del dock
+// Según esquemático del Dock, los botones están en:
+// T10 = FPGA_~{RST} (botón de reset dedicado del dock)
+IO_LOC "RST" T10;
+IO_PORT "RST" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+// ── LEDs naranjas del dock (activo-bajo)
+IO_LOC "LED_VOZ" L14;
+IO_PORT "LED_VOZ" IO_TYPE=LVCMOS33 DRIVE=8;
+
+IO_LOC "LED_TX" L16;
+IO_PORT "LED_TX" IO_TYPE=LVCMOS33 DRIVE=8;
+
+// ── Micrófono INMP441 (pines de IO libre)
+IO_LOC "MIC_SCK" P6;
+IO_PORT "MIC_SCK" IO_TYPE=LVCMOS33 DRIVE=8;
+
+IO_LOC "MIC_WS" T6;
+IO_PORT "MIC_WS" IO_TYPE=LVCMOS33 DRIVE=8;
+
+IO_LOC "MIC_SD" D14;
+IO_PORT "MIC_SD" IO_TYPE=LVCMOS33 PULL_MODE=NONE;
+
+// ── UART hacia ESP32
+IO_LOC "PIN_UART_TX" T9;
+IO_PORT "PIN_UART_TX" IO_TYPE=LVCMOS33 DRIVE=8;
